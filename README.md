@@ -15,12 +15,17 @@
 ## Установка
 
 # Клонируем репозиторий
+
 git clone https://github.com/glebas666/vue-client-dashboard.git
+
 # Переходим в папку проекта
+
 cd vue-project
 
 # Устанавливаем зависимости
+
 npm install
 
 # Запускаем dev-сервер
+
 npm run dev

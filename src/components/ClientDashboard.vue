@@ -1,13 +1,19 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import rawClients from '../assets/mockClients.js'
 import ClientCard from './ClientCard.vue'
 import NotificationSystem from './NotificationSystem.vue'
 import ClientFilters from './ClientFilters.vue'
 import useInterval from '../composables/useInterval.js'
 
-// Реактивная копия клиентов
-const clients = ref(rawClients)
+// Загрузка клиентов из localStorage или mock
+const storedClients = localStorage.getItem('clients')
+const clients = ref(storedClients ? JSON.parse(storedClients) : rawClients)
+
+// Сохраняем данные при изменениях
+watch(clients, (newVal) => {
+  localStorage.setItem('clients', JSON.stringify(newVal))
+}, { deep: true })
 
 // Активные фильтры
 const activeFilters = ref({ statuses: [], query: '' })
@@ -31,7 +37,7 @@ const filteredClients = computed(() => {
 // Уведомления
 const notificationRef = ref(null)
 
-// Для изменения статуса клиента из карточки
+// Смена статуса клиента
 function handleStatusChange({ clientId, newStatus }) {
   const client = clients.value.find(c => c.id === clientId)
   if (client) {
@@ -46,7 +52,7 @@ const { start, stop, isRunning } = useInterval(clients, (message) => {
   notificationRef.value?.addNotification(message)
 })
 
-// Обработка кнопок запуска/остановки с уведомлениями
+// Обработка кнопок запуска/остановки
 function handleStart() {
   if (!isRunning.value) {
     start()
@@ -65,6 +71,7 @@ function handleStop() {
   }
 }
 </script>
+
 
 <template>
   <div class="dashboard">
