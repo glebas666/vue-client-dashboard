@@ -27,7 +27,8 @@ watch([selectedStatuses, query], () => {
     statuses: selectedStatuses.value,
     query: query.value
   })
-})
+}, { deep: true })
+
 
 // Сброс фильтров
 function resetFilters() {
