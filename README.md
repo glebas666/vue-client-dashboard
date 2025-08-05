@@ -1,29 +1,27 @@
-# vue-project
+# Клиентская панель на Vue 3
 
-This template should help get you started developing with Vue 3 in Vite.
+Веб-приложение для отображения и фильтрации списка организаций с возможностью запуска и остановки проверки.
 
-## Recommended IDE Setup
+![Скриншот интерфейса](./assets/screenshot.png)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Особенности
 
-## Customize configuration
+- Поиск организаций по названию
+- Фильтрация по статусу: Активен, Новый, Завершен, Проблемы и др.
+- Запуск и остановка проверки клиентов
+- Уведомления о смене статуса
+- Современный адаптивный интерфейс
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Установка
 
-## Project Setup
+# Клонируем репозиторий
+git clone https://github.com/...
 
-```sh
+# Переходим в папку проекта
+cd vue-project
+
+# Устанавливаем зависимости
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# Запускаем dev-сервер
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
