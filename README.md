@@ -15,8 +15,7 @@
 ## Установка
 
 # Клонируем репозиторий
-git clone https://github.com/...
-
+git clone https://github.com/glebas666/vue-client-dashboard.git
 # Переходим в папку проекта
 cd vue-project
 
